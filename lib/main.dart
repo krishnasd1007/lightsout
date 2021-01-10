@@ -1,7 +1,6 @@
 import 'dart:async';
-
+import 'menu.dart';
 import 'package:flutter/material.dart';
-import 'board.dart';
 
 void main() {
   runApp(Splash());
@@ -36,8 +35,7 @@ class _ScreenState extends State<Screen> {
   }
 
   void navigate() {
-    Navigator.push(
-        context, MaterialPageRoute(builder: (context) => LightOut()));
+    Navigator.push(context, MaterialPageRoute(builder: (context) => Menu()));
   }
 
   Widget build(BuildContext context) {
@@ -58,7 +56,7 @@ class _ScreenState extends State<Screen> {
               color: Colors.orange[300],
               child: Center(
                 child: new Image.asset(
-                  '',
+                  'image/lightout.png',
                   width: wt * 0.5,
                   height: ht * 0.5,
                 ),

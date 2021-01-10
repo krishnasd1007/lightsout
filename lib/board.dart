@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'rules.dart';
-//import 'dart:math';
+import 'dart:math';
+import 'menu.dart';
 
 void main() {
   runApp(LightOut());
@@ -26,20 +27,6 @@ class Board extends StatefulWidget {
 }
 
 class _BoardState extends State<Board> {
-  /*var switchState = [];
-  main() {
-    Random s = new Random();
-    for (var i = 0; i < 9; i++) {
-      switchState[i] = s.nextInt(2);
-      if (switchState[i] == 1) {
-        press[i] = false;
-      }
-      else {
-        press[i] = true;
-      }
-    }
-  }*/
-
   var ht, wt;
   List<bool> press = [
     true,
@@ -52,6 +39,19 @@ class _BoardState extends State<Board> {
     true,
     false
   ];
+
+  var switchState = [];
+  void switches() {
+    Random s = new Random();
+    for (var i = 0; i < 9; i++) {
+      switchState[i] = s.nextInt(2);
+      if (switchState[i] == 1) {
+        press[i] = false;
+      } else {
+        press[i] = true;
+      }
+    }
+  }
 
   Widget light0() {
     return Material(
@@ -293,10 +293,13 @@ class _BoardState extends State<Board> {
                     child: RaisedButton(
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(ht * 0.07)),
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) => Menu()));
+                      },
                       color: Colors.blueAccent,
                       child: Text(
-                        'NEW',
+                        'MENU',
                         style: TextStyle(
                             color: Colors.white70,
                             fontSize: ht * 0.03,
